@@ -1,10 +1,10 @@
-
 import { Router } from "express";
 import { config } from "../config";
 import { AbstractRouter } from './AbstractRouter';
 import { IApiRouter } from "./interfaces/IApiRouter";
 import { routesMiddleware } from "../middlewares/RoutesMiddleware";
 import { spiceRouter } from "./SpiceRouter";
+import { stuffRouter } from "./SuffRouter";
 
 export class ApiRouter extends AbstractRouter{
     constructor(public router: Router, private routes: IApiRouter[]){
@@ -26,7 +26,8 @@ export class ApiRouter extends AbstractRouter{
 }
 
 const  apiRoutes: IApiRouter[] = [
-    {url: '/spices', router: spiceRouter}
+    {url: '/spices', router: spiceRouter},
+    {url: '/stuff', router: stuffRouter},
 ];
 
 export const apiRouter = new ApiRouter(Router(), apiRoutes);
