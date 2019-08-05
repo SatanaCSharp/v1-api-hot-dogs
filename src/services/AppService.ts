@@ -5,7 +5,7 @@ import errorHandler from "errorhandler";
 import cors from "cors";
 import mongoose from "mongoose";
 import { config } from "../config";
-// import { apiRouter } from "../routes/ApiRouter";
+import { apiRouter } from "../routes/ApiRouter";
 
 
 export class AppService {
@@ -18,7 +18,7 @@ export class AppService {
         app.use(cors());
         app.use(errorHandler());
         app.set("baseUrl", config.baseUrl);
-        // app.use(apiRouter.getApiRouter);
+        app.use(apiRouter.getApiRouter);
         app.listen(config.server.port, () => {
             console.log(`An app is running using ${config.baseUrl}`);
         });
