@@ -5,6 +5,7 @@ import { IApiRouter } from "./interfaces/IApiRouter";
 import { routesMiddleware } from "../middlewares/RoutesMiddleware";
 import { spiceRouter } from "./SpiceRouter";
 import { stuffRouter } from "./SuffRouter";
+import { hotDogRouter } from "./HotDogRouter";
 
 export class ApiRouter extends AbstractRouter{
     constructor(public router: Router, private routes: IApiRouter[]){
@@ -28,6 +29,7 @@ export class ApiRouter extends AbstractRouter{
 const  apiRoutes: IApiRouter[] = [
     {url: '/spices', router: spiceRouter},
     {url: '/stuff', router: stuffRouter},
+    {url: '/hot-dogs', router: hotDogRouter},
 ];
 
 export const apiRouter = new ApiRouter(Router(), apiRoutes);
