@@ -9,6 +9,7 @@ class StuffRouter extends AbstractRouter {
         super(router);
         this._stuffMiddleware = new StuffMiddleware();
         this.router.route("/").get(this._stuffController.index);
+        this.router.route("/:id").get(this._stuffController.show);
         this.router.route("/").post(this._stuffMiddleware.request, this._stuffController.store);
         this.router.route("/:id").put(this._stuffMiddleware.request,this._stuffController.update);
         this.router.route("/:id").delete(this._stuffController.delete);

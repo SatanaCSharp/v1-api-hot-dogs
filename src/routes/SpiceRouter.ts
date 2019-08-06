@@ -7,6 +7,7 @@ class SpiceRouter extends  AbstractRouter {
     constructor(public router: Router, private _spicesMiddleware: SpicesMiddleware, private _spicesController: SpicesController){
         super(router);
         this.router.route("/").get(this._spicesController.index);
+        this.router.route("/:id").get(this._spicesController.show);
         this.router.route("/").post(this._spicesMiddleware.request, this._spicesController.store);
         this.router.route("/:id").put(this._spicesMiddleware.request, this._spicesController.update);
         this.router.route("/:id").delete(this._spicesController.delete);

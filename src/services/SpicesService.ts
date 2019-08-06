@@ -9,6 +9,13 @@ class SpicesService {
             res.sendStatus(500);
         }
     }
+    public  async findById(req: Request, res:Response):Promise<void> {
+        try {
+            res.send(await spicesRepository.findById(req.params.id));
+        } catch (err) {
+            res.sendStatus(500);
+        }
+    }
     public async store(req: Request, res:Response):Promise<void> {
         try{
             res.send(await spicesRepository.store(req));

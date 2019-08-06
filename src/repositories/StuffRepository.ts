@@ -8,6 +8,9 @@ export class StuffRepository implements  IStuffRepository{
     public async findAll() {
         return await stuffMapper.findAll();
     }
+    public async findById(id:string) {
+        return await stuffMapper.findById(id);
+    }
     public async store(req: Request) {
         const stuffEntity: StuffEntity = new StuffEntity();
         stuffEntity.setName(req.body.name);

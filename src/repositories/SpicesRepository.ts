@@ -9,6 +9,10 @@ export class SpicesRepository implements  ISpicesRepository{
         return await spiceMapper.findAll();
     }
 
+    public async findById(id:string) {
+        return await  spiceMapper.findById(id);
+    }
+
     public async store(req: Request) {
         const spiceEntity: SpiceEntity = new SpiceEntity();
         spiceEntity.setName(req.body.name);
