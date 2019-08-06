@@ -5,6 +5,9 @@ export class SpicesController {
     public async index(req: Request, res: Response):Promise<void> {
         await spicesService.findAll(req,res);
     }
+    public async show(req: Request, res: Response):Promise<void> {
+        await spicesService.findById(req, res);
+    }
     public async store(req:Request, res: Response):Promise<void> {
         await spicesService.store(req, res);
     }

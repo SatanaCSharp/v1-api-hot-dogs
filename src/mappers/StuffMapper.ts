@@ -11,6 +11,9 @@ export class StuffMapper {
         await stuff.save();
         return await this.findAll();
     }
+    public async findById(id:string): Promise<IStuffModel| null> {
+        return await Stuff.findById( id, '_id name');
+    }
     public async update(id:string, stuffEntity: StuffEntity): Promise<IStuffModel[]> {
         await Stuff.updateOne({'_id': id}, stuffEntity);
         return await this.findAll();

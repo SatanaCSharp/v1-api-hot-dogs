@@ -11,6 +11,9 @@ export class SpiceMapper {
         await spice.save();
         return await this.findAll();
     }
+    public async findById(id:string): Promise<ISpiceModel| null> {
+        return await Spice.findById( id, '_id name');
+    }
     public async update(id:string, spiceEntity:SpiceEntity): Promise<ISpiceModel[]> {
         await Spice.updateOne({'_id': id}, spiceEntity);
         return await this.findAll();

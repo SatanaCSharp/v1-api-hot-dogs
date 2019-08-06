@@ -1,9 +1,13 @@
 import { Request, Response } from 'express';
 import {stuffService} from "../services/StuffService";
 
+
 export  class StuffController {
     public async index(req: Request, res: Response):Promise<void> {
         await stuffService.findAll(req,res);
+    }
+    public async show(req: Request, res: Response):Promise<void> {
+        await stuffService.findById(req, res);
     }
     public async store(req:Request, res: Response):Promise<void> {
         await stuffService.store(req, res);
